@@ -1,0 +1,20 @@
+{
+    "admins":{
+        "0":{
+            "username": "admin",
+            "password": "admin1234"
+        }
+    },
+    "preguntas":{
+        "0": {
+            "enunciado": "Enunciado 0",
+            "opciones": ["opcion 0", "opcion 1", "opcion 2"],
+            "respuesta": 0
+        },
+        "1": {
+            "enunciado": "Enunciado 1",
+            "opciones": ["opcion 0", "opcion 1", "opcion 2"],
+            "respuesta": 0
+        }
+    }
+}

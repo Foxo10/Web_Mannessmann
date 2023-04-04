@@ -1,8 +1,8 @@
 {{#each partials.questionContext }}
 
     <div class="question">
-        <h2>{{pregunta.enunciado}}</h2>
-        {{#each pregunta.opciones}}
+        <h2>{{this.enunciado}}</h2>
+        {{#each this.opciones}}
             <div class="opcion">{{this}}</div>
         {{/each}}
 
