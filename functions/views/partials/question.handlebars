@@ -1,0 +1,11 @@
+{{#each partials.questionContext }}
+
+    <div class="question">
+        <h2>{{pregunta.enunciado}}</h2>
+        {{#each pregunta.opciones}}
+            <div class="opcion">{{this}}</div>
+        {{/each}}
+
+    </div>
+
+{{/each}}
