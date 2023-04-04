@@ -16,5 +16,19 @@
             "opciones": ["opcion 0", "opcion 1", "opcion 2"],
             "respuesta": 0
         }
+    },
+    "respuestas":{
+        "0": {
+            "mail": "example@mail.com",
+            "fechaUltimaRes": "04/4/2023 12:38:08",
+            "numRes": 4,
+            "numResUltimaFecha": 1
+        },
+        "1": {
+            "mail": "usuario@mail.com",
+            "fechaUltimaRes": "04/4/2023 12:38:08",
+            "numRes": 4,
+            "numResUltimaFecha": 1
+        }
     }
 }

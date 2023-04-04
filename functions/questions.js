@@ -1,4 +1,4 @@
-const { getPreguntas } = require("./database")
+const { getPreguntas, getRespuestas } = require("./database")
 
 // Formato preguntas
 // preguntas:[
@@ -16,4 +16,34 @@ const questionMiddleware = async (req, res, next) => {
     next()
 }
 
-module.exports = questionMiddleware
+
+// Formato respuestas
+// respuestas:{
+//    "example@mail.com":{
+//          fechaUltimaRes: "04/4/2023 12:38:08",
+//          numRes: 4
+//    }, ...
+// }
+
+const responseMiddleware = async (req, res, next) => {
+    if (!res.locals.partials) res.locals.partials = {}
+    res.locals.partials.responseContext = await getRespuestas()
+    next()
+}
+
+const respuestasCorrectas = async (respuestas) => {
+    preguntas = await getPreguntas()
+
+    let correctas = true
+    for( let pregunta in preguntas){
+        for( let respuesta in respuestas){
+            if (pregunta.id === respuesta.id && pregunta.respuesta != respuesta.respuesta)
+                correctas = false
+        }
+    }
+
+    return correctas
+}
+
+module.exports.questionMiddleware = questionMiddleware
+module.exports.responseMiddleware = responseMiddleware

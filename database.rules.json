@@ -5,6 +5,9 @@
     ".write": false,
     "admins":{
       ".indexOn": ["username"]
+    },
+    "respuesta":{
+      ".indexOn": ["mail"]
     }
   }
 }
