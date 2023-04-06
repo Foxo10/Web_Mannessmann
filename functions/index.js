@@ -22,7 +22,7 @@ app.use( cors() )
 app.use("/cuestionario", questionMiddleware )
 app.use("/dashboard", responseMiddleware )
 app.use( express.static(path.join(__dirname, "public")) )
-app.use(session({ secret: 'tacoma web', cookie: {} }))
+app.use(session({ name: "__session", secret: 'tacoma web', cookie: {} }))
 
 // Definimos las rutas
 app.get("/", (req, res) => {
