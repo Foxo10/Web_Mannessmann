@@ -1,16 +1,26 @@
-<h2>Login Form</h2>
+<div class="container bg-light my-3 py-3">
+  <h2>Dashboard</h2>
+  <p>Entra con tu cuenta de administrador.</p>
 
-<form action="/login" method="post">
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="username" required>
+  <form action="/login" method="post">
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <label class="form-label" for="username">Username</label>
+      <input type="text" id="username" name="username" class="form-control" required/>
+    </div>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
-        
-    <button type="submit">Login</button>
-  </div>
-</form>
-{{#if error}}
-<div>{{error}}</div>
-{{/if}}
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <label class="form-label" for="password">Password</label>
+      <input type="password" id="password" name="password" class="form-control" required/>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4">Log in</button>
+  </form>
+
+
+  {{#if error}}
+  <div>{{error}}</div>
+  {{/if}}
+</div>

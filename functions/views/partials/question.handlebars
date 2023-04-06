@@ -1,9 +1,12 @@
-{{#each partials.questionContext }}
-
-    <div class="question">
-        <h2>{{this.enunciado}}</h2>
+{{#each partials.questionContext}}
+    <div class="form-group bg-dark text-white p-3 my-3">
+        <h3>Pregunta {{@key}}</h3>
+        <label for="pregunta{{@key}}">{{this.enunciado}}</label>
         {{#each this.opciones}}
-            <div class="opcion">{{this}}</div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="respuesta-{{@../key}}" id="pregunta{{@../key}}-{{@index}}" value="{{@index}}">
+                <label class="form-check-label" for="pregunta{{@../key}}-{{@index}}">{{this}}</label>
+            </div>
         {{/each}}
 
     </div>

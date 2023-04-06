@@ -1,2 +1,20 @@
-<h1>Dashboard</h1>
-{{> response}}
+<div class="container-fluid bg-light my-3 py-3">
+    <h1>Dashboard</h1>
+    
+    <h2>Participaciones</h2>
+    <table class="table table-dark table-striped table-hover table-sm">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Email</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Participaciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{> response}}
+      </tbody>
+    </table>
+
+</div>

@@ -35,11 +35,16 @@ const respuestasCorrectas = async (respuestas) => {
     preguntas = await getPreguntas()
 
     let correctas = true
-    for( let pregunta in preguntas){
-        for( let respuesta in respuestas){
-            if (pregunta.id === respuesta.id && pregunta.respuesta != respuesta.respuesta)
-                correctas = false
-        }
+    for(let id in preguntas){
+        respuestaCorrecta = preguntas[id].respuesta
+        
+        // Buscamos la respuesta dada a esta pregunta
+        respuestaDada = respuestas["respuesta-" + id]
+        
+        if(respuestaDada != null && respuestaCorrecta == respuestaDada) continue
+
+        correctas = false
+        break
     }
 
     return correctas
@@ -47,3 +52,4 @@ const respuestasCorrectas = async (respuestas) => {
 
 module.exports.questionMiddleware = questionMiddleware
 module.exports.responseMiddleware = responseMiddleware
+module.exports.respuestasCorrectas = respuestasCorrectas

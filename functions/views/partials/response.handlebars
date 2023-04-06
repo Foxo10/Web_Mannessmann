@@ -1,8 +1,10 @@
 {{#each partials.responseContext }}
-
-    <div class="question">
-        <h2>{{this.mail}}</h2>
-        <div>{{this.numRes}}</div>
-    </div>
+    <tr>
+        <th scope="row">{{@index}}</th>
+        <td>{{this.mail}}</td>
+        <td>{{this.nombre}}</td>
+        <td>{{this.apellidos}}</td>
+        <td>{{this.numRes}}</td>
+    </tr>
 
 {{/each}}

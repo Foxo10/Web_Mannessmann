@@ -36,9 +36,11 @@ const getRespuestas = () => {
 function findKey(listaRespuestas, mail) { 
     for (let key in listaRespuestas)
        if (listaRespuestas[key].mail === mail) return key;
+    
+       return null
 }
 
-const addRespuesta = (mail) => {
+const addRespuesta = (mail, nombre, apellidos) => {
     return new Promise((resolve, rejects) => {
         db.ref("respuestas").once("value", (snap) => {
             const listaRespuestas = snap.val()
@@ -47,9 +49,7 @@ const addRespuesta = (mail) => {
             
             if (key) {
                 res = listaRespuestas[key]
-                console.log("RESPUESTA")
-                console.log(res)
-                
+
                 // Comprobamos la fecha de la última participación
                 const fecha = Date.parse(res.fechaUltimaRes);
                 const diffTime = Math.abs(now - fecha);
@@ -57,34 +57,35 @@ const addRespuesta = (mail) => {
 
                 if (diffDays <= 1 && res.numResUltimaFecha < 3){
                     // Participamos por n vez en una fecha
-                    db.ref("respuestas").child(key).update({
+                    resolve(db.ref("respuestas").child(key).update({
                         "fechaUltimaRes": now.toISOString(),
                         "numResUltimaFecha": res.numResUltimaFecha +1,
                         "numRes": res.numRes +1
-                    })
+                    }))
                     
                 }else if(diffDays > 1){
                     // Participamos por primera vez en una fecha
-                    db.ref("respuestas").child(key).update({
+                    resolve(db.ref("respuestas").child(key).update({
                         "fechaUltimaRes": now.toISOString(),
                         "numResUltimaFecha": 1,
                         "numRes": res.numRes +1
-                    })
+                    }))
                     
                 }else{
-                    rejects("Limite de participaciones diarias alcanzado")
+                    rejects("Limite de participaciones diarias alcanzado.")
                 }
 
             }else{
                 // Este usuario no ha participado anteriormente
                 resolve(db.ref("respuestas").push({
                     "mail": mail,
+                    "nombre": nombre,
+                    "apellidos": apellidos,
                     "fechaUltimaRes": now.toISOString(),
                     "numRes": 1,
                     "numResUltimaFecha": 1
                 }))
             }
-            
             
         });
     })

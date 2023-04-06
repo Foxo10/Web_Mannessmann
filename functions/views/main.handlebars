@@ -1,1 +1,17 @@
-<h1>Pagina principal</h1>
+<div class="container bg-dark text-white my-3 py-3">
+    <h1>Ésto es un encabezado.</h1>
+    <p>Ésto es un párrafo de texto.</p>
+
+    <div class="embed-responsive embed-responsive-16by9 my-3">
+       <iframe src="http://www.youtube.com/embed/wjQq0nSGS28" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+    </div>
+
+    <a type="button" class="btn btn-primary btn-lg btn-block" href="/cuestionario">Cuestionario</a>
+    {{#if error}}
+    <p style="color: red;">{{error}}</p>
+    {{/if}}
+    
+    {{#if info}}
+        <p style="color:greenyellow;">{{info}}</p>
+    {{/if}}
+</div>
