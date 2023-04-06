@@ -2,19 +2,24 @@
     "admins":{
         "0":{
             "username": "admin",
-            "password": "admin1234"
+            "password": "admin"
         }
     },
     "preguntas":{
         "0": {
-            "enunciado": "Enunciado 0",
-            "opciones": ["opcion 0", "opcion 1", "opcion 2"],
-            "respuesta": 0
+            "enunciado": "Aproximadamente, ¿cuántos huesos tiene el cuerpo humano?",
+            "opciones": ["40", "390", "208"],
+            "respuesta": 2
         },
         "1": {
-            "enunciado": "Enunciado 1",
-            "opciones": ["opcion 0", "opcion 1", "opcion 2"],
-            "respuesta": 0
+            "enunciado": "¿Cómo hace la vaca?",
+            "opciones": ["miau", "mumu", "guau", "raor"],
+            "respuesta": 1
+        },
+        "2": {
+            "enunciado": "¿La pizza lleva piña?",
+            "opciones": ["Sí, soy un terrorista", "No (única respuesta válida)"],
+            "respuesta": 1
         }
     },
     "respuestas":{
